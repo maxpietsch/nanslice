@@ -13,7 +13,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='nanslice',
-    version='0.9.0',
+    version='0.9.0.1',
     description='Scripts to slice and display neuroimages (probably stored in nifti format)',
     url='https://github.com/spinicist/nanslice',
     author='Tobias Wood',
