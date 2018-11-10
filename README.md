@@ -1,6 +1,7 @@
 # Not Another Neuroimaging Slicer - nanslice #
 
 Credit / Blame / Contact - Tobias Wood - tobias.wood@kcl.ac.uk
+Blame https://github.com/maxpietsch for modifications.
 
 This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
