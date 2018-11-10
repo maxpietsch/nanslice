@@ -6,11 +6,13 @@ Utility functions for nanslice module
 from pathlib import Path
 import numpy as np
 from nibabel import load
-import nibabel.Nifti1Image
+from nibabel import Nifti1Image
 
 def check_path(maybe_path):
     """Helper function to check if an object is path-like"""
     if isinstance(maybe_path, Path) or isinstance(maybe_path, str):
+        if maybe_path.endswith('.mif') or maybe_path.endswith('.mif.gz'):
+            raise NotImplementedError("loading .mif files is not supported")
         return True
     else:
         return False
@@ -19,8 +21,10 @@ def ensure_image(maybe_path):
     """Helper function that lets either images or paths be passed around"""
     if check_path(maybe_path):
         return load(str(maybe_path))
-    elif isinstance(maype_Path, np.ndarray):
-        return nibabel.Nifti1Image(maype_Path, affine=np.diag((1., 1., 1., 1.)))
+    elif hasattr(maybe_path, 'transform') and hasattr(maybe_path, 'data'):
+            return Nifti1Image(maybe_path.data, affine=maybe_path.transform)
+    elif isinstance(maybe_path, np.ndarray):
+        return Nifti1Image(maybe_path, affine=np.diag((1., 1., 1., 1.)))
     else:
         return maybe_path
 
