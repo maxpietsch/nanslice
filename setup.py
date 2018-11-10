@@ -15,7 +15,7 @@ setup(
     name='nanslice',
     version='0.9.0.1',
     description='Scripts to slice and display neuroimages (probably stored in nifti format)',
-    url='https://github.com/spinicist/nanslice',
+    url='https://github.com/maxpietsch/nanslice',
     author='Tobias Wood',
     author_email='tobias@spinicist.org.uk',
     py_modules=['nanslice'],
